@@ -1,9 +1,14 @@
+// save button click stores information from text area to local storage
 $(document).ready(function(){
     $('.saveBtn').on('click', function(){
         var time = $(this).parent().attr('id')
-        var value = $(this).siblings('description').val()
-        
+        var value = $(this).siblings('textarea').val()
+        console.log(value, time)
+    localStorage.setItem(time, value)
+
     })
+
+    // Update textarea to remove past events
     function hourUpdater(){
         var currentHour = moment().hours()
         $('.time-block').each(function(){
@@ -20,8 +25,12 @@ $(document).ready(function(){
             }
         })
     }
+
     hourUpdater()
+    // set time to update once every hour
+
     setInterval(hourUpdater,3600000)
+    // retrieve stored events when time is updated each hour
     $('#hours-9').val(localStorage.getItem('hours-9'))
     $('#hours-10').val(localStorage.getItem('hours-10'))
     $('#hours-11').val(localStorage.getItem('hours-11'))
@@ -36,5 +45,3 @@ $(document).ready(function(){
     $("#currentDay").text(moment().format('llll'))
 })
 
-var description = document.getElementById("description")
-        localStorage.setItem("description")
