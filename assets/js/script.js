@@ -2,7 +2,7 @@ $(document).ready(function(){
     $('.saveBtn').on('click', function(){
         var time = $(this).parent().attr('id')
         var value = $(this).siblings('description').val()
-        localStorage.setItem(time, value)
+        
     })
     function hourUpdater(){
         var currentHour = moment().hours()
@@ -35,3 +35,6 @@ $(document).ready(function(){
     // when calendar is opened, current date is displayed at top
     $("#currentDay").text(moment().format('llll'))
 })
+
+var description = document.getElementById("description")
+        localStorage.setItem("description")
