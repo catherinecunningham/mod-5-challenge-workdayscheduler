@@ -5,10 +5,14 @@ $(document).ready(function(){
         var value = $(this).siblings('textarea').val()
         console.log(value, time)
     localStorage.setItem(time, value)
-
     })
 
-    // Update textarea to remove past events
+    function storeTextArea() {
+        localStorage.setItem('textarea')
+        localStorage.getItem('textarea')
+    }
+
+    // update text area to remove past events
     function hourUpdater(){
         var currentHour = moment().hours()
         $('.time-block').each(function(){
